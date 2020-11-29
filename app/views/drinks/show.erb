@@ -1,0 +1,13 @@
+<h2 style="color:red; background-color:powderblue;"> <%= @not_user_error%> </h2>
+
+<img src = "<%= @drink.pic%>" alt="Our drink" style="width:270px;height:270px;">
+<h1><%= @drink.name %><h1>
+<h2><%= @drink.instructions %> <h2>
+
+<% if current_user == @drink.user %> 
+<form action= "/drinks/<%=@drink.id%>" method = "post">
+    <input type="hidden" name="_method" value ="delete">
+    <button type="submit">Delete Drink Entry</button style="width:110px;height:40px;">
+</form>
+<% else %>
+<% end %>

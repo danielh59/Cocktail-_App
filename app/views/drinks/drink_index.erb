@@ -1,0 +1,14 @@
+
+<h1>Our List of Drinks</h1>
+<% @drinks.each do |drink|%>
+<h2> <a href="/drinks/<%= drink.id%>"><%= drink.name %> </a></h2>
+<img src = "<%=drink.pic%>" alt="Our drink" style="width:270px;height:270px;">
+<% if drink.user && session[:user_id] == drink.user.id %> 
+<a href="/drinks/<%=drink.id%>/edit">Edit</a>
+<% end %>
+<% end %>
+
+
+
+
+
