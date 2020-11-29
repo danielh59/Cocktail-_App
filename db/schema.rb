@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201115205840) do
+ActiveRecord::Schema.define(version: 20201129065327) do
 
   create_table "drinks", force: :cascade do |t|
     t.string  "name"
-    t.string  "pic"
+    t.string  "pic",          default: "https://st.depositphotos.com/2346379/3459/i/600/depositphotos_34591677-stock-photo-cocktails.jpg"
     t.text    "instructions"
     t.integer "user_id"
   end

@@ -17,7 +17,8 @@ class SessionsController < ApplicationController
           if user = User.find_by(username: params["username"], password: params["password"])
                 session[:user_id] = user.id
                 redirect to '/drinks'
-            @error = "Account not found"
+          else
+            @error = "Username or password do not match our records. Sign up below"
             erb :'/users/new' 
           end
         end
