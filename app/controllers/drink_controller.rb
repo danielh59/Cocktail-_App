@@ -26,7 +26,7 @@ class DrinkController < ApplicationController
             drink.save
             redirect to '/drinks'
          else
-            @error = "Data invalid. Please try again."
+            @error = "Data invalid. Must fill in name and instructions."
          erb :"/drinks/new"
         end
     end

@@ -1,23 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title>Happy (Any) Hour</title>
 
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* {box-sizing: border-box;}
-h1 {
-  text-decoration: underline;
+
+h1 {  
+  margin-right: 0;
+  padding: 5px;
+  font-family:  Blippo, monospace, serif;
+  background-color: tomato;
+  color: white;
+  font-size: 200%;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 0;
+  margin-right: 0px;
+  margin-top: 0;
+  font-family: Arial, Helvetica, serif;
+  background-color: tomato;
+  background-image: url('https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/23129/margarita-cocktail-clipart-md.png'), url('https://cdn.shopify.com/s/files/1/1337/1863/products/NeonSignsInus-FreeShipping-0389-cocktail-glass-neon-sign_1024x1024.jpg?v=1542609761');
+  background-size: 90px;
+}
+form {
+  border-style: inset;
+  border-width: 15px;
+  margin-right: 750px;
+  background-color: #ccc;
+  padding: 15px;
+}
+
+footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  border-width: 5px;
+  border-color: tomato;
+  font-size: 100%;
+  color: #9999ff;
+  text-align: center;
+  padding: 5px;
+  border-style: inset;
+  background-color: black;
+}
+
+p.drink_index {
+  border-style: inset;
+  border-width: 15px;
+  margin-right: 750px;
+  background-color: #ccc;
+  padding: 15px;
 }
 
 .topnav {
+  font-size: 25px;
+  font-family: Impact, Helvetica, sans-serif;
   overflow: hidden;
-  background-color: Tomato;
+  background-color: #9999ff;
 }
 
 .topnav a {
@@ -27,11 +67,11 @@ body {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  
 }
 
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: tomato;
   color: black;
 }
 
@@ -40,46 +80,12 @@ body {
   color: white;
 }
 
-.topnav .search-container {
-  float: right;
-}
-
-.topnav input[type=text] {
-  padding: 6px;
-  margin-top: 8px;
-  font-size: 17px;
-  border: none;
-}
-
-.topnav .search-container button {
-  float: right;
-  padding: 6px;
-  margin-top: 8px;
-  margin-right: 16px;
-  background: #ddd;
-  font-size: 17px;
-  border: none;
-  cursor: pointer;
-}
-
-.topnav .search-container button:hover {
-  background: #ccc;
-}
-
-@media screen and (max-width: 600px) {
-  .topnav .search-container {
-    float: none;
-  }
-  .topnav a, .topnav input[type=text], .topnav .search-container button {
-    float: none;
+ screen  {
+  .topnav a, .topnav input[type=text], .topnav  {
+    float: center;
     display: block;
     text-align: left;
     width: 100%;
-    margin: 0;
-    padding: 14px;
-  }
-  .topnav input[type=text] {
-    border: 1px solid #ccc;  
   }
 }
 </style>
@@ -94,15 +100,17 @@ body {
   <% if logged_in? %>
   <a href="/logout">Log Out</a>
   <% end %>
-  <a href="/signup">Sign up</a>
+  <a href="/signup">Sign Up</a>
   <a href="/drinks/new">Make New Cocktail</a>
   <a href="/drinks">List of Drinks</a>
 </div>
 
-<div style="padding-left:10px">
-  
-</div>
+<footer>
+  <p>Daniel H.'s Happy Hour Sinatra App</p>
+</footer>
 
 <%=yield%> 
+
+
 </body>
 </html>
