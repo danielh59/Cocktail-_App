@@ -31,18 +31,17 @@ class DrinkController < ApplicationController
         if @drink
           erb :"/drinks/show"
         else
-            redirect'/drinks'
+            redirect '/drinks'
         end
     end
     
     get '/drinks/:id/edit' do
-        require_session
         @drink = Drink.find(params[:id])
         if current_user == @drink.user
-            erb :'/drinks/edit'
+            redirect '/drinks/edit'
         else
-            @not_user_error = "Oi, must be owner of this drink to edit."
-            redirect  '/'
+            @not_user_error = "Hey, must be owner of this drink to edit."
+            erb :'/drinks/show'
         end
     end
     

@@ -4,24 +4,22 @@ h1 {
   margin-right: 500px;
   padding: 5px;
   font-family:  Blippo, monospace, serif;
-  background-color: tomato;
-  color: white;
+  color: navy;
   font-size: 200%;
 }
 h2 {
   margin-right: 500px;
-  padding: 5px;
   font-family:  Blippo, monospace, serif;
-  background-color: tomato;
-  color: white;
+  color:  navy;
   font-size: 150%;
+  padding: 10px;
+  background-color: tomato;
 }
 </style>
-
-<h2 style="color:red; background-color:powderblue;"> <%= @not_user_error%> </h2>
-
+<p style="color:red; background-color: lightblue; font-size: 150%; margin-right: 900px"><%= @not_user_error %><p>
 <img src = "<%= @drink.pic%>" alt="Our drink" style="width:270px;height:270px; border-style: inset;">
-<h1 ><%= @drink.name %><h1>
+
+<h1><%= @drink.name %><h1>
 <h2><%= @drink.instructions %> <h2>
 
 <% if current_user == @drink.user %> 

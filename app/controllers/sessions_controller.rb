@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
         erb :'/users/login'
       else
         @oops = "Hey you're already logged in!"
-        redirect '/'
+        redirect to '/'
       end
     end 
 
