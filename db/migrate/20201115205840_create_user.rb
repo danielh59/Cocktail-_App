@@ -4,6 +4,6 @@ class CreateUser < ActiveRecord::Migration
       profile.string :username
       profile.string :password
     end       
-end
+  end
 
 end

@@ -100,7 +100,9 @@ p.drink_index {
   <% if logged_in? %>
   <a href="/logout">Log Out</a>
   <% end %>
+  <% if !logged_in? %>
   <a href="/signup">Sign Up</a>
+  <% end %>
   <a href="/drinks/new">Make New Cocktail</a>
   <a href="/drinks">List of Drinks</a>
 </div>

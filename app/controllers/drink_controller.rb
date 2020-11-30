@@ -1,20 +1,15 @@
 class DrinkController < ApplicationController
+    before do 
+        require_session
+    end
     
     get '/drinks/new' do
-        if logged_in?
         erb :'/drinks/new'
-        else 
-        redirect '/login'
-        end
     end 
 
     get '/drinks' do  
-        if logged_in? 
-             @drinks = Drink.all.reverse
-            erb :'/drinks/drink_index'
-        else 
-            redirect '/login'
-        end
+        @drinks = Drink.all.reverse
+        erb :'/drinks/drink_index'
     end 
 
 
@@ -22,29 +17,26 @@ class DrinkController < ApplicationController
         filter = params.reject{|key, value| key == "pic" && value.empty?}
         drink = current_user.drinks.build(filter)
         drink.pic = nil if drink.pic.empty?
-        if !drink.name.empty? && !drink.instructions.empty?
-            drink.save
+        if  drink.save
             redirect to '/drinks'
-         else
+        else
             @error = "Data invalid. Must fill in name and instructions."
-         erb :"/drinks/new"
+            erb :"/drinks/new"
         end
     end
 
     get '/drinks/:id' do 
-        if logged_in?
+        require_session
         @drink = Drink.find_by(id: params["id"])
-            if @drink
-              erb :"/drinks/show"
-            else
-                redirect'/drinks'
-            end
+        if @drink
+          erb :"/drinks/show"
         else
-            redirect '/login'
+            redirect'/drinks'
         end
     end
     
     get '/drinks/:id/edit' do
+        require_session
         @drink = Drink.find(params[:id])
         if current_user == @drink.user
             erb :'/drinks/edit'

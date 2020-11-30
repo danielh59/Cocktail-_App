@@ -1,2 +1,3 @@
 puts "Seed database"
-DrinkApi::Adapter.new.find_drink_by_name
+DrinkApi::Adapter.new.seed_by_name
+DrinkApi_V::Adapter.new.seed_by_name
